@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>House Price Predictor</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f0f0f0;
+    }
+
+    .form-container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+    }
+
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>House Price Prediction</h2>
+    <form method="POST" action="/predict">
+      <div class="form-group"><label>CRI</label><input type="float" name="CRI" required></div>
+      <div class="form-group"><label>ZN</label><input type="float" name="ZN" required></div>
+      <div class="form-group"><label>INDUS</label><input type="float" name="INDUS" required></div>
+      <div class="form-group"><label>CHAS</label><input type="float" name="CHAS" required></div>
+      <div class="form-group"><label>NOX</label><input type="float" name="NOX" required></div>
+      <div class="form-group"><label>RM</label><input type="float" name="RM" required></div>
+      <div class="form-group"><label>AGE</label><input type="float" name="AGE" required></div>
+      <div class="form-group"><label>DIS</label><input type="float" name="DIS" required></div>
+      <div class="form-group"><label>RAD</label><input type="float" name="RAD" required></div>
+      <div class="form-group"><label>TAX</label><input type="float" name="TAX" required></div>
+      <div class="form-group"><label>PTRATIO</label><input type="float" name="PTRATIO" required></div>
+      <div class="form-group"><label>B</label><input type="float" name="B" required></div>
+      <div class="form-group"><label>LSTAT</label><input type="float" name="LSTAT" required></div>
+      
+      <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+      <div class="result">{{ prediction_text }}</div>
+    {% endif %}
+  </div>
+
+</body>
+</html>
